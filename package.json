@@ -1,0 +1,23 @@
+{
+  "name": "Linked-Lists",
+  "version": "1.0.0",
+  "description": "",
+  "main": "linkList.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L3OL1N/Linked-Lists.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L3OL1N/Linked-Lists/issues"
+  },
+  "homepage": "https://github.com/L3OL1N/Linked-Lists#readme",
+  "dependencies": {
+    "jest": "^28.1.3"
+  }
+}
