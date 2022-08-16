@@ -65,6 +65,13 @@ describe("#insertByIndex",()=>{
         expect(ll.getByIndex(2).value).toBe(50)
         expect(ll.length).toBe(4)
     })
+    test("index tail",()=>{
+        const ll = linkList.fromVlaue(10,20,30)
+        ll.insertAtTail(50);
+        
+        expect(ll.tail.value).toBe(50)
+        expect(ll.length).toBe(4)
+    })
 })
 describe("#removeByIndex",()=>{
     test("index less than 0",()=>{
@@ -83,7 +90,7 @@ describe("#removeByIndex",()=>{
         const ll = linkList.fromVlaue(10,20)
         ll.removeByIndex(0);
 
-        expect(ll.head).toBe(20)
+        expect(ll.head.value).toBe(20)
         expect(ll.length).toBe(1)
     })
     test("index mid",()=>{
@@ -92,5 +99,20 @@ describe("#removeByIndex",()=>{
         
         expect(ll.getByIndex(1).value).toBe(30)
         expect(ll.length).toBe(3)
+    })
+    test("index tail",()=>{
+        const ll = linkList.fromVlaue(10,20,30,40)
+        ll.removeTail();
+        
+        expect(ll.getByIndex(2).value).toBe(30)
+        expect(ll.length).toBe(3)
+    })
+})
+describe("contains",()=>{
+    test("value contain?",()=>{
+        const ll = new linkList.fromVlaue(10,20,30);
+        
+        expect(ll.contains(10)).toBe(true)
+        expect(ll.contains(15)).toBe(false)
     })
 })
