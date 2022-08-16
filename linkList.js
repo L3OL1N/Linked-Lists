@@ -3,10 +3,14 @@ class linkList {
         this.head = null;
         this.length = 0;
     }
-    insertAHead(data){
+    insertAtHead(data){
         const newNode = new linkListNode(data,this.head)
         this.head = newNode;
         this.length++;
+    }
+    removeAtHead(){
+        this.head = this.head.next;
+        this.length--;
     }
     getByIndex(index){
         if(index < 0 || index >= this.length) return null;
@@ -15,6 +19,20 @@ class linkList {
             current = current.next;
         }
         return current;
+    }
+    insertByIndex(index,value){
+        if(index < 0 || index >= this.length) return;
+        if(index == 0) return this.insertAtHead(value);
+        let preNode = this.getByIndex(index-1);
+        preNode.next = new linkListNode(value,preNode.next);
+        this.length++;
+    }
+    removeByIndex(index){
+        if(index < 0 || index >= this.length) return;
+        if(index == 0) return this.removeAtHead();
+        let preNode = this.getByIndex(index-1);
+        preNode.next = preNode.next.next;
+        this.length--;
     }
     print(){
         let output = "";
@@ -36,7 +54,7 @@ class linkListNode{
 linkList.fromVlaue = function(...value){
     const ll = new linkList();
     for(let i = value.length-1;i >= 0; i--){
-        ll.insertAHead(value[i]);
+        ll.insertAtHead(value[i]);
     }
     return ll;
 }
